@@ -1,26 +1,24 @@
-import React from "react";
 import "./index.css";
 import Layout from "./components/Layout";
-import DynamicComponent from "./components/DynamicComponent";
-import { useStoryblok } from "./utils/storyblok";
+import { useStoryblok, StoryblokComponent } from "@storyblok/react";
 
 function App() {
-  let slug =
+  const slug =
     window.location.pathname === "/"
       ? "home"
       : window.location.pathname.replace("/", "");
 
-  const preview = true;
+  const story = useStoryblok(slug, {
+    resolve_relations: ["featured-posts.posts", "selected-posts.posts"],
+  });
 
-  let story = useStoryblok(slug, preview);
-
-  if (!story) {
+  if (!story?.content) {
     return <div>Loading...</div>;
   }
 
   return (
     <Layout>
-      <DynamicComponent blok={story.content} />
+      <StoryblokComponent blok={story.content} />
     </Layout>
   );
 }

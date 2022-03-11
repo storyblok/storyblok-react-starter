@@ -1,11 +1,10 @@
-import React from "react";
-import { sbEditable } from "@storyblok/storyblok-editable";
+import { storyblokEditable } from "@storyblok/react";
 
 const PostLists = ({ blok }) => {
   return (
     <ul
       className="mx-auto w-full flex flex-col items-center"
-      {...sbEditable(blok)}
+      {...storyblokEditable(blok)}
       key={blok._uid}
     >
       {blok.posts.map((post) => {
