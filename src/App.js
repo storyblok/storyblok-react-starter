@@ -8,9 +8,15 @@ function App() {
       ? "home"
       : window.location.pathname.replace("/", "");
 
-  const story = useStoryblok(slug, {
-    resolve_relations: ["featured-posts.posts", "selected-posts.posts"],
-  });
+  const story = useStoryblok(
+    slug,
+    {
+      resolve_relations: ["featured-posts.posts", "selected-posts.posts"],
+    },
+    {
+      resolveRelations: ["featured-posts.posts", "selected-posts.posts"],
+    }
+  );
 
   if (!story?.content) {
     return <div>Loading...</div>;
