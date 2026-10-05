@@ -1,3 +1,7 @@
+> [!WARNING]
+> This repository is no longer maintained.
+> For a current React + Storyblok starter, use [blueprint-core-react](https://github.com/storyblok/blueprint-core-react).
+
 # Storyblok React Starter
 
 This is the example repository for building a blog with Storyblok.
